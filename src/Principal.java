@@ -4,6 +4,8 @@ import alura.curso.screenmatch.modelos.Episodio;
 import alura.curso.screenmatch.modelos.Filme; // Importando a classe filme do pacote X
 import alura.curso.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
         Filme meuFilme = new Filme(); // Parte da direita estou dizendo que minha variavel meuFilme será guardada na "gaveta" java.curso.screenmatch.modelos.Filme(minha classe), já na da direita estou criando o objeto
@@ -43,6 +45,18 @@ public class Principal {
 
         filtro.filtra(episodio);
 
+        Filme filmeDoBruno = new Filme();
+        filmeDoBruno.setNome("De volta ao jogo");
+        filmeDoBruno.setDuracaoEmMinutos(120);
+        filmeDoBruno.setAnoDeLancamento(2010);
+        filmeDoBruno.avalia(10);
 
+        ArrayList <Filme> listaDeFilmes = new ArrayList<>(); // Trabalhando com arrays
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(filmeDoBruno);
+        System.out.println("Tamanho da lista "+listaDeFilmes.size());
+        System.out.println("Primeiro filme: "+listaDeFilmes.get(0).getNome());
+        System.out.println("Segundo filme: "+listaDeFilmes.get(1).getNome());
+        System.out.println(listaDeFilmes.get(0).toString());
     }
 }
