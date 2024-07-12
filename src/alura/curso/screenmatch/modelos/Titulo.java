@@ -1,12 +1,17 @@
 package alura.curso.screenmatch.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
     private String nome;
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
     private int totalDeAvaliacoes;
     private int duracaoEmMinutos;
+
+    public Titulo(String nome, int anoDeLancamento) {
+        this.nome = nome;
+        this.anoDeLancamento = anoDeLancamento;
+    }
 
     // Criando método
     public void exibeFichaTecnica() {
@@ -60,5 +65,10 @@ public class Titulo {
 
     public void setIncluidoNoPlano(boolean incluidoNoPlano) {
         this.incluidoNoPlano = incluidoNoPlano;
+    }
+
+    @Override
+    public int compareTo(Titulo outroTitulo) { // Aqui estamos fazer um override no método compareTo da interface Comparable, onde vou receber um titulo e comparar com a variavel outroTitulo
+        return this.getNome().compareTo(outroTitulo.getNome());
     }
 }

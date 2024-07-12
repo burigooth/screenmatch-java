@@ -1,3 +1,5 @@
+package alura.curso.screenmatch.principal;
+
 import alura.curso.screenmatch.calculos.CalculadoraDeTempo;
 import alura.curso.screenmatch.calculos.FiltroRecomendacao;
 import alura.curso.screenmatch.modelos.Episodio;
@@ -8,10 +10,10 @@ import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme(); // Parte da direita estou dizendo que minha variavel meuFilme será guardada na "gaveta" java.curso.screenmatch.modelos.Filme(minha classe), já na da direita estou criando o objeto
-        Serie minhaSerie = new Serie();
-        meuFilme.setNome("Pânico");
-        meuFilme.setAnoDeLancamento(1996);
+        Filme meuFilme = new Filme("Pânico", 1996); // Parte da direita estou dizendo que minha variavel meuFilme será guardada na "gaveta" java.curso.screenmatch.modelos.Filme(minha classe), já na da direita estou criando o objeto
+        Serie minhaSerie = new Serie("Breaking bad", 2008);
+        //meuFilme.setNome("Pânico");
+        //meuFilme.setAnoDeLancamento(1996);
         meuFilme.setDuracaoEmMinutos(180);
         meuFilme.setIncluidoNoPlano(true);
 
@@ -45,10 +47,10 @@ public class Principal {
 
         filtro.filtra(episodio);
 
-        Filme filmeDoBruno = new Filme();
-        filmeDoBruno.setNome("De volta ao jogo");
+        Filme filmeDoBruno = new Filme("De volta ao jogo", 2010);
+        //filmeDoBruno.setNome("De volta ao jogo");
         filmeDoBruno.setDuracaoEmMinutos(120);
-        filmeDoBruno.setAnoDeLancamento(2010);
+        //filmeDoBruno.setAnoDeLancamento(2010);
         filmeDoBruno.avalia(10);
 
         ArrayList <Filme> listaDeFilmes = new ArrayList<>(); // Trabalhando com arrays
@@ -58,5 +60,7 @@ public class Principal {
         System.out.println("Primeiro filme: "+listaDeFilmes.get(0).getNome());
         System.out.println("Segundo filme: "+listaDeFilmes.get(1).getNome());
         System.out.println(listaDeFilmes.get(0).toString());
+
+
     }
 }
