@@ -1,11 +1,10 @@
 package alura.curso.screenmatch.modelos;
 
+import alura.curso.screenmatch.excecao.AnoInvalidoException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo> {
-    @SerializedName("Title") // Anotação do gson para dizer que o nome é o Title
     private String nome;
-    @SerializedName("Year")
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
@@ -19,8 +18,12 @@ public class Titulo implements Comparable<Titulo> {
 
     public Titulo(TituloOmdb tituloTeste) {
         this.nome = tituloTeste.title();
+
+        if (tituloTeste.year().length() > 4){ // Criando nossa propria exceção
+            throw new AnoInvalidoException("Ano com mais valores do que deveria.");
+        }
         this.anoDeLancamento = Integer.valueOf(tituloTeste.year());
-        this.duracaoEmMinutos = Integer.valueOf(tituloTeste.runtime().substring(0, 2));
+        this.duracaoEmMinutos = Integer.valueOf(tituloTeste.runtime().substring(0, 3));
     }
 
     // Criando método
