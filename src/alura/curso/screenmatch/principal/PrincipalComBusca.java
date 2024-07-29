@@ -6,6 +6,7 @@ import alura.curso.screenmatch.modelos.TituloOmdb;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,6 +21,8 @@ import java.util.Scanner;
 public class PrincipalComBusca {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner leitor = new Scanner(System.in);
+        Dotenv dotenv = Dotenv.load();
+        String apiKey = dotenv.get("API_KEY");
         String busca = "";
         List<Titulo> titulos = new ArrayList<>();
 
@@ -35,7 +38,7 @@ public class PrincipalComBusca {
             if(busca.equalsIgnoreCase("sair")){
                 break;
             }
-            String endereco = "https://www.omdbapi.com/?t="+ busca.replace(" ", "+") + "&apikey=f23c5cfe";
+            String endereco = "https://www.omdbapi.com/?t="+ busca.replace(" ", "+") + "&apikey="+apiKey;
 
             try{
                 HttpClient client = HttpClient.newHttpClient(); // Criado um novo cliente para fazer a requisição
